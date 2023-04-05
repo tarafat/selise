@@ -9,6 +9,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../../constants/app_constants.dart';
+import '../../login/presentation/login_screen.dart';
 import '../data/firebase_crud.dart';
 import 'comments.dart';
 import 'video_list.dart';
@@ -120,6 +121,20 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
+          const SizedBox(width: 10),
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              storage.write(AppConstants.kKeyIsLoggedIn, false);
+              _controller.pause();
+              Navigator.push(
+                context,
+                CupertinoPageRoute(
+                  builder: (context) => const LoginScreen(),
+                ),
+              );
+            },
+          ),
         ],
       ),
       body: Column(
@@ -185,49 +200,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 _text('Title', _videoMetaData.title),
                 _space,
                 _text('Channel', _videoMetaData.author),
-                // _space,
-                // _text('Video Id', _videoMetaData.videoId),
-                // _space,
-                // Row(
-                //   children: [
-                //     _text(
-                //       'Playback Quality',
-                //       _controller.value.playbackQuality ?? '',
-                //     ),
-                //     const Spacer(),
-                //     _text(
-                //       'Playback Rate',
-                //       '${_controller.value.playbackRate}x  ',
-                //     ),
-                //   ],
-                // ),
-                // _space,
-                // TextField(
-                //   enabled: _isPlayerReady,
-                //   controller: _idController,
-                //   decoration: InputDecoration(
-                //     border: InputBorder.none,
-                //     hintText: 'Enter youtube \<video id\> or \<link\>',
-                //     fillColor: Colors.blueAccent.withAlpha(20),
-                //     filled: true,
-                //     hintStyle: const TextStyle(
-                //       fontWeight: FontWeight.w300,
-                //       color: Colors.blueAccent,
-                //     ),
-                //     suffixIcon: IconButton(
-                //       icon: const Icon(Icons.clear),
-                //       onPressed: () => _idController.clear(),
-                //     ),
-                //   ),
-                // ),
                 _space,
-                // Row(
-                //   children: [
-                //     _loadCueButton('LOAD'),
-                //     const SizedBox(width: 10.0),
-                //     _loadCueButton('CUE'),
-                //   ],
-                // ),
                 _space,
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

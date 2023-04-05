@@ -15,14 +15,18 @@ class ExpenseList extends StatelessWidget {
     return StreamBuilder<QuerySnapshot>(
         stream: helper.getCommetsStreamSnapshots(context, vid),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (snapshot.data!.size == 0) {
-            return const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text("No comments Yet"),
-            );
+          if (snapshot.hasData) {
+            if (snapshot.data!.size == 0) {
+              return const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text("No comments Yet"),
+              );
+            } else {
+              return ListView(children: getComments(snapshot));
+            }
           }
 
-          return ListView(children: getComments(snapshot));
+          return const Center(child: CircularProgressIndicator());
         });
   }
 
