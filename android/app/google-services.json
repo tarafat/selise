@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "622318604305",
+    "project_id": "selisetest-fb90c",
+    "storage_bucket": "selisetest-fb90c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:622318604305:android:fe784fe28f2d7a3e1ee1b0",
+        "android_client_info": {
+          "package_name": "com.arafat.selise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "622318604305-le3tlnril5n665hvl54r43ssgp31hoeg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDX7jP4jv8xavcuD72-7BeY7rTYjRsYbC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "622318604305-le3tlnril5n665hvl54r43ssgp31hoeg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
